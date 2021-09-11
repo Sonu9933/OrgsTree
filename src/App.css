@@ -36,3 +36,42 @@
     transform: rotate(360deg);
   }
 }
+
+
+ul, #org-tree {
+  list-style-type: none;
+  font-weight: 600;
+}
+
+#org-tree {
+  margin: 0;
+  padding: 0;
+}
+
+.node {
+  cursor: pointer;
+  user-select: none;
+}
+
+.node::before {
+  content: "\25B6";
+  color: black;
+  display: inline-block;
+  margin-right: 6px;
+}
+
+.node-down::before {
+  transform: rotate(90deg);  
+}
+
+.child-node {
+  display: none;
+}
+
+.active {
+  display: block;
+}
+
+.Collapsible{
+  text-decoration: underline;
+}
