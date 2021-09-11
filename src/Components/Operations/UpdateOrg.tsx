@@ -83,11 +83,9 @@ export const UpdateOrg = () => {
             <div className="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
               Go back to Home
               <b>
-                <BrowserRouter>
-                  <Link to="/" className="Info link px-2">
-                    Goto Home
-                  </Link>
-                </BrowserRouter>
+                <Link to="/" className="Info link px-2">
+                  Goto Home
+                </Link>
               </b>
             </div>
           </div>
