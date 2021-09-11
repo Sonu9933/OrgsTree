@@ -82,11 +82,13 @@ export const ViewOrg = () => {
           });
         });
     } else {
-      traverseJSON(jsonData);
-      dispatch({
-        type: ActionTypes.UPDATE,
-        payload: { orgData: orgGraphData, jsonUpdate: false },
-      });
+      if (state.jsonUpdate) {
+        traverseJSON(jsonData);
+        dispatch({
+          type: ActionTypes.UPDATE,
+          payload: { orgData: orgGraphData, jsonUpdate: false },
+        });
+      }
       dispatch({
         type: ActionTypes.ERROR,
         payload: {

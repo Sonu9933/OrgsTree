@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { OrganizationContext } from "../Context/Context";
 import { ActionTypes } from "../Context/ActionTypes";
-import { BrowserRouter, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useCallback } from "react";
 import { useDropzone } from "react-dropzone";
 
