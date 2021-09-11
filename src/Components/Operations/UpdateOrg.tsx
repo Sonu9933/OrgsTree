@@ -1,8 +1,7 @@
-import { useContext } from "react";
+import React, { useContext } from "react";
 import { OrganizationContext } from "../Context/Context";
 import { ActionTypes } from "../Context/ActionTypes";
-import { Link } from "react-router-dom";
-import "../../App.css";
+import { BrowserRouter, Link } from "react-router-dom";
 import { useCallback } from "react";
 import { useDropzone } from "react-dropzone";
 
@@ -84,9 +83,11 @@ export const UpdateOrg = () => {
             <div className="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
               Go back to Home
               <b>
-                <Link to="/" className="Info link px-2">
-                  Goto Home
-                </Link>
+                <BrowserRouter>
+                  <Link to="/" className="Info link px-2">
+                    Goto Home
+                  </Link>
+                </BrowserRouter>
               </b>
             </div>
           </div>

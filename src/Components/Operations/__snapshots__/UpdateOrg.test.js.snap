@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Update Org Should render UpdateOrg 1`] = `
+<div
+  className="container"
+>
+  <div
+    className="row"
+  >
+    <div
+      className="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4"
+    >
+      <h1
+        className="text-center display-4 py-2 text-truncate text-primary"
+      >
+        <b>
+          Upload JSON here!!
+        </b>
+      </h1>
+    </div>
+  </div>
+  <div
+    className="row"
+  >
+    <div
+      className="col-lg-8 col-md-8 col-sm-10 mx-auto text-center form p-4"
+    >
+      <h4
+        className="display-4 py-2 border border-primary text-info rounded"
+      >
+        <div
+          onBlur={[Function]}
+          onClick={[Function]}
+          onDragEnter={[Function]}
+          onDragLeave={[Function]}
+          onDragOver={[Function]}
+          onDrop={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          tabIndex={0}
+        >
+          <input
+            autoComplete="off"
+            multiple={true}
+            onChange={[Function]}
+            onClick={[Function]}
+            style={
+              Object {
+                "display": "none",
+              }
+            }
+            tabIndex={-1}
+            type="file"
+          />
+          Drag 'n' drop some files here, or click to select files
+        </div>
+      </h4>
+    </div>
+  </div>
+  <div
+    className="row"
+  >
+    <div
+      className="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4"
+    >
+      Go back to Home
+      <b>
+        <a
+          className="Info link px-2"
+          href="/"
+          onClick={[Function]}
+        >
+          Goto Home
+        </a>
+      </b>
+    </div>
+  </div>
+</div>
+`;

@@ -116,7 +116,10 @@ export const ViewOrg = () => {
                 new json by clicking on Upload JSON link{" "}
               </b>
             </p>
-            <div className="p-4 rounded" style={{ minHeight: 200, border:"1px solid black" }}>
+            <div
+              className="p-4 rounded"
+              style={{ minHeight: 200, border: "1px solid black" }}
+            >
               <Collapsible trigger="Click to view">
                 <ul
                   id="org-tree"

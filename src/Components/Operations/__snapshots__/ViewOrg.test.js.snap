@@ -1,0 +1,118 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`View Org Should render ViewOrg 1`] = `
+Array [
+  <div
+    className="container p-4"
+  >
+    <div
+      className="row"
+    >
+      <div
+        className="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center"
+      >
+        <h1
+          className="text-center display-4 py-2 text-truncate text-primary text-underline"
+        >
+          <b>
+            Organization Chart
+          </b>
+        </h1>
+      </div>
+    </div>
+    <div
+      className="row"
+    >
+      <div
+        className="col-lg-8 col-md-8 col-sm-10 mx-auto"
+      >
+        <p
+          className="mx-auto text-center Info link "
+        >
+          <b>
+             
+            Below data is based on the date received from end point (https://jsonkeeper.com/b/OGAU). To update the it, please upload new json by clicking on Upload JSON link
+             
+          </b>
+        </p>
+        <div
+          className="p-4 rounded"
+          style={
+            Object {
+              "border": "1px solid black",
+              "minHeight": 200,
+            }
+          }
+        >
+          <div
+            className="Collapsible"
+          >
+            <span
+              aria-controls="collapsible-content-1631362601322"
+              aria-disabled={false}
+              aria-expanded={false}
+              className="Collapsible__trigger is-closed"
+              id="collapsible-trigger-1631362601322"
+              onClick={[Function]}
+              onKeyPress={[Function]}
+              role="button"
+              style={null}
+              tabIndex={null}
+            >
+              Click to view
+            </span>
+            <div
+              aria-labelledby="collapsible-trigger-1631362601322"
+              className="Collapsible__contentOuter"
+              hidden={false}
+              id="collapsible-content-1631362601322"
+              onTransitionEnd={[Function]}
+              role="region"
+              style={
+                Object {
+                  "WebkitTransition": "height 400ms linear",
+                  "height": 0,
+                  "msTransition": "height 400ms linear",
+                  "overflow": "hidden",
+                  "transition": "height 400ms linear",
+                }
+              }
+            >
+              <div
+                className="Collapsible__contentInner"
+              >
+                <ul
+                  dangerouslySetInnerHTML={
+                    Object {
+                      "__html": "",
+                    }
+                  }
+                  id="org-tree"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    className="row"
+  >
+    <div
+      className="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4"
+    >
+      Click here to Update hierarchy :
+      <b>
+        <a
+          className="px-2"
+          href="/UpdateOrg"
+          onClick={[Function]}
+        >
+          Upload JSON
+        </a>
+      </b>
+    </div>
+  </div>,
+]
+`;
