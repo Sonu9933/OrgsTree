@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import React,{ useContext, useEffect } from "react";
 import { OrganizationContext } from "../Context/Context";
 import { Link } from "react-router-dom";
 import { ActionTypes } from "../Context/ActionTypes";
@@ -104,7 +104,7 @@ export const ViewOrg = () => {
         <div className="row">
           <div className="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center">
             <h1 className="text-center display-4 py-2 text-truncate text-primary text-underline">
-              <b>Organization Chart</b>
+              <b className="b1">Organization Chart</b>
             </h1>
           </div>
         </div>

@@ -56,7 +56,7 @@ export const UpdateOrg = () => {
       <div className="row">
         <div className="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
           <h1 className="text-center display-4 py-2 text-truncate text-primary">
-            <b>Upload JSON here!!</b>
+            <b className="b1">Upload JSON here!!</b>
           </h1>
         </div>
       </div>
