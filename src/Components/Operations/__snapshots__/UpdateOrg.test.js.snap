@@ -13,7 +13,9 @@ exports[`Update Org Should render UpdateOrg 1`] = `
       <h1
         className="text-center display-4 py-2 text-truncate text-primary"
       >
-        <b>
+        <b
+          className="b1"
+        >
           Upload JSON here!!
         </b>
       </h1>
