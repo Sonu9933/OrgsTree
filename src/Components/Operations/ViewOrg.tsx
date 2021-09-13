@@ -1,3 +1,4 @@
+/* eslint-disable array-callback-return */
 import React,{ useContext, useEffect } from "react";
 import { OrganizationContext } from "../Context/Context";
 import { Link } from "react-router-dom";
@@ -96,6 +97,7 @@ export const ViewOrg = () => {
         },
       });
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
