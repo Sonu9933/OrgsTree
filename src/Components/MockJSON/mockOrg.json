@@ -1,0 +1,35 @@
+{
+   "Sergei":{
+      "position":"CTO",
+      "employees":[
+         {
+            "Sofia":{
+               "position":"Principal Developer",
+               "employees":[
+                  {
+                     "Nikolai":{
+                        "position":"Lead Developer",
+                        "employees":[
+                           {
+                              "name":"Petr",
+                              "position":"Backend Developer",
+                              "employees":[
+                                 
+                              ]
+                           },
+                           {
+                              "name":"Lana",
+                              "position":"Frontend Developer",
+                              "employees":[
+                                 
+                              ]
+                           }
+                        ]
+                     }
+                  }
+               ]
+            }
+         }
+      ]
+   }
+}

@@ -3,10 +3,11 @@ import React,{ useContext, useEffect } from "react";
 import { OrganizationContext } from "../Context/Context";
 import { Link } from "react-router-dom";
 import { ActionTypes } from "../Context/ActionTypes";
-import axios from "axios";
+//import axios from "axios";
 import Collapsible from "react-collapsible";
 const orgGraphData: any[] = [];
 const reg = new RegExp("^[0-9]+$");
+const data = require("../MockJSON/mockOrg.json");
 
 const traverseJSON = (data: any) => {
   for (let k in data) {
@@ -61,7 +62,16 @@ export const ViewOrg = () => {
 
   useEffect(() => {
     if (organization.length === 0) {
-      axios
+      traverseJSON(data);
+      dispatch({
+        type: ActionTypes.UPDATE_JSONDATA,
+        payload: { data: data, jsonUpdate: false },
+      });
+      dispatch({
+        type: ActionTypes.UPDATE,
+        payload: { orgData: orgGraphData, jsonUpdate: false },
+      });
+      /*axios
         .get("https://jsonkeeper.com/b/OGAU")
         .then((response) => {
           traverseJSON(response.data);
@@ -81,7 +91,7 @@ export const ViewOrg = () => {
               error: true,
             },
           });
-        });
+        });*/
     } else {
       if (state.jsonUpdate) {
         traverseJSON(jsonData);
