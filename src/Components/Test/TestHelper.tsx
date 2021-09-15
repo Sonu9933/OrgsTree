@@ -6,7 +6,7 @@ import {
 import { render } from "@testing-library/react";
 import renderer from "react-test-renderer";
 
-export const renderWithContext = (component, value) => {
+export const renderWithContext = (component: any, value: any) => {
   return value
     ? render(
         <OrganizationContext.Provider
