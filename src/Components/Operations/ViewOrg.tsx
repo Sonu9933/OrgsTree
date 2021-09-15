@@ -1,5 +1,5 @@
 /* eslint-disable array-callback-return */
-import React,{ useContext, useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { OrganizationContext } from "../Context/Context";
 import { Link } from "react-router-dom";
 import { ActionTypes } from "../Context/ActionTypes";
@@ -107,7 +107,7 @@ export const ViewOrg = () => {
         },
       });
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -123,11 +123,10 @@ export const ViewOrg = () => {
         <div className="row">
           <div className="col-lg-8 col-md-8 col-sm-10 mx-auto">
             <p className="mx-auto text-center Info link ">
-              <b>
-                {" "}
+              <b className="b2">
                 Below data is based on the date received from end point
                 (https://jsonkeeper.com/b/OGAU). To update the it, please upload
-                new json by clicking on Upload JSON link{" "}
+                new json by clicking on Upload JSON link
               </b>
             </p>
             <div

@@ -17,6 +17,17 @@ export const UpdateOrg = () => {
             error: true,
           },
         });
+      } else if (
+        acceptedFiles[0].path
+          .substr(acceptedFiles[0].path.lastIndexOf("\\") + 1)
+          .split(".")[0] !== "json"
+      ) {
+        dispatch({
+          type: ActionTypes.ERROR,
+          payload: {
+            error: true,
+          },
+        });
       } else {
         acceptedFiles.forEach((file: any) => {
           const reader = new FileReader();
@@ -94,7 +105,8 @@ export const UpdateOrg = () => {
         <div className="row">
           <div className="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
             <b>
-              Oops you cant upload more than 1 file!!
+              Oops you cant upload more than 1 file or file is not in json
+              format!!!
               <Link to="/" className="Danger link px-2">
                 click here ToGo Home
               </Link>

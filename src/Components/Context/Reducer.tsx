@@ -24,6 +24,9 @@ export const AppReducer = (state: any, { type, payload }: any) => {
       };
 
     default:
-      throw new Error("Invalid Action Type");
+      return {
+        ...state,
+        error: true,
+      };
   }
 };

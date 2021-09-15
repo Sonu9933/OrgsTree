@@ -26,7 +26,7 @@ describe("View Org", () => {
     expect(containerClass).toBeDefined();
   });
 
-  test("Check View Org content", () => {
+  test("Check View Org content-1", () => {
     const component = renderWithContext(
       <BrowserRouter>
         <ViewOrg />
@@ -38,5 +38,21 @@ describe("View Org", () => {
     );
 
     expect(valueElement.props.children).toEqual("Organization Chart");
+  });
+
+  test("Check View Org content-2", () => {
+    const component = renderWithContext(
+      <BrowserRouter>
+        <ViewOrg />
+      </BrowserRouter>
+    );
+
+    const valueElement = component.root.find(
+      (el) => el.type === "b" && el.props.className === "b2"
+    );
+
+    expect(valueElement.props.children).toEqual(
+      "Below data is based on the date received from end point (https://jsonkeeper.com/b/OGAU). To update the it, please upload new json by clicking on Upload JSON link"
+    );
   });
 });

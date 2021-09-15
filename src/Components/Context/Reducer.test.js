@@ -42,4 +42,18 @@ describe("Reducer Test Cases", () => {
     expect(result.error).toEqual(true);
     expect(result.isValid).toEqual(false);
   });
+
+  test("Invalid Action", () => {
+    const state = { isValid: false, error: false };
+
+    const action = {
+      type: ActionTypes.ERROR1,
+      payload: {
+        error: true,
+      },
+    };
+
+    const result = AppReducer(state, action);
+    expect(result.error).toEqual(true);
+  });
 });
