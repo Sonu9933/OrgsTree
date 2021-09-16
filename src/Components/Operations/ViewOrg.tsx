@@ -1,13 +1,13 @@
 /* eslint-disable array-callback-return */
+//import axios from "axios";
 import React, { useContext, useEffect } from "react";
 import { OrganizationContext } from "../Context/Context";
 import { Link } from "react-router-dom";
 import { ActionTypes } from "../Context/ActionTypes";
-//import axios from "axios";
-import Collapsible from "react-collapsible";
 const orgGraphData: any[] = [];
 const reg = new RegExp("^[0-9]+$");
 const data = require("../MockJSON/mockOrg.json");
+let isLoaded: boolean = false;
 
 const traverseJSON = (data: any) => {
   for (let k in data) {
@@ -41,24 +41,22 @@ const traverseJSON = (data: any) => {
   }
 };
 
-const getTreeStructure = (orgData: any) => {
-  let element: string = "";
-
-  orgData.map((data: any, i: any) => {
-    if (data.element === "<ul>") {
-      element += "<ul>";
-    } else if (data.element === "<li>") {
-      element += `<li>
-      <span className="node bold">${orgData[i].name} - ${orgData[i].position}</span>
-    </li>`;
-    }
-  });
-  return element;
-};
-
 export const ViewOrg = () => {
   const { state, dispatch } = useContext(OrganizationContext);
   const { organization, jsonData } = { ...state };
+  const getTreeStructure = (orgData: any) => {
+    let element: string = "";
+    orgData.map((data: any, i: any) => {
+      if (data.element === "<ul>") {
+        element += "<ul class='nested'>";
+      } else if (data.element === "<li>") {
+        element += `<li class="caret">
+          <span>${orgData[i].name} - ${orgData[i].position}</span>
+        </li>`;
+      }
+    });
+    return element;
+  };
 
   useEffect(() => {
     if (organization.length === 0) {
@@ -72,26 +70,26 @@ export const ViewOrg = () => {
         payload: { orgData: orgGraphData, jsonUpdate: false },
       });
       /*axios
-        .get("https://jsonkeeper.com/b/OGAU")
-        .then((response) => {
-          traverseJSON(response.data);
-          dispatch({
-            type: ActionTypes.UPDATE_JSONDATA,
-            payload: { data: response.data, jsonUpdate: false },
-          });
-          dispatch({
-            type: ActionTypes.UPDATE,
-            payload: { orgData: orgGraphData, jsonUpdate: false },
-          });
-        })
-        .catch(() => {
-          dispatch({
-            type: ActionTypes.ERROR,
-            payload: {
-              error: true,
-            },
-          });
-        });*/
+          .get("https://jsonkeeper.com/b/OGAU")
+          .then((response) => {
+            traverseJSON(response.data);
+            dispatch({
+              type: ActionTypes.UPDATE_JSONDATA,
+              payload: { data: response.data, jsonUpdate: false },
+            });
+            dispatch({
+              type: ActionTypes.UPDATE,
+              payload: { orgData: orgGraphData, jsonUpdate: false },
+            });
+          })
+          .catch(() => {
+            dispatch({
+              type: ActionTypes.ERROR,
+              payload: {
+                error: true,
+              },
+            });
+          });*/
     } else {
       if (state.jsonUpdate) {
         traverseJSON(jsonData);
@@ -107,8 +105,24 @@ export const ViewOrg = () => {
         },
       });
     }
+    isLoaded = false;
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  useEffect(() => {
+    if (!isLoaded) {
+      const toggler = document.getElementsByTagName("li");
+      for (let i = 0; i < toggler.length; i++) {
+        isLoaded = true;
+        toggler[i].addEventListener("click", function () {
+          toggler[i]?.parentElement
+            ?.querySelector(".nested")
+            ?.classList.toggle("active");
+          toggler[i]?.classList.toggle("caret-down");
+        });
+      }
+    }
+  });
 
   return (
     <>
@@ -133,26 +147,24 @@ export const ViewOrg = () => {
               className="p-4 rounded"
               style={{ minHeight: 200, border: "1px solid black" }}
             >
-              <Collapsible trigger="Click to view">
-                <ul
-                  id="org-tree"
-                  dangerouslySetInnerHTML={{
-                    __html: getTreeStructure(organization),
-                  }}
-                />
-              </Collapsible>
+              <ul
+                id="org-tree"
+                dangerouslySetInnerHTML={{
+                  __html: getTreeStructure(organization),
+                }}
+              />
             </div>
           </div>
         </div>
       </div>
       <div className="row">
         <div className="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
-          Click here to Update hierarchy :
+          Update hierarchy :
           <b>
             <Link to="/UpdateOrg" className="px-2">
               Upload JSON
             </Link>
-          </b>
+          </b>{" "}
         </div>
       </div>
     </>
