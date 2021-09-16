@@ -38,6 +38,6 @@ describe("Update Org", () => {
       (el) => el.type === "b" && el.props.className === "b1"
     );
 
-    expect(valueElement.props.children).toEqual("Upload JSON here!!");
+    expect(valueElement.props.children).toEqual("Upload JSON");
   });
 });

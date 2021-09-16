@@ -67,7 +67,7 @@ export const UpdateOrg = () => {
       <div className="row">
         <div className="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
           <h1 className="text-center display-4 py-2 text-truncate text-primary">
-            <b className="b1">Upload JSON here!!</b>
+            <b className="b1">Upload JSON</b>
           </h1>
         </div>
       </div>
@@ -102,17 +102,25 @@ export const UpdateOrg = () => {
           </div>
         </>
       ) : (
+        <>
         <div className="row">
-          <div className="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
+          <div className="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4  text-danger">
             <b>
               Oops you cant upload more than 1 file or file is not in json
               format!!!
+            </b>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4  text-danger">
+            <b>
               <Link to="/" className="Danger link px-2">
-                click here ToGo Home
+                Navigate Home
               </Link>
             </b>
           </div>
         </div>
+        </>
       )}
     </div>
   );

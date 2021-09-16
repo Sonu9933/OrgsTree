@@ -16,7 +16,7 @@ exports[`Update Org Should render UpdateOrg 1`] = `
         <b
           className="b1"
         >
-          Upload JSON here!!
+          Upload JSON
         </b>
       </h1>
     </div>

@@ -23,6 +23,12 @@ export const AppReducer = (state: any, { type, payload }: any) => {
         error: payload.error,
       };
 
+    case ActionTypes.DUPLICATE:
+      return {
+        ...state,
+        duplicateFound: payload.duplicate,
+      };
+
     default:
       return {
         ...state,

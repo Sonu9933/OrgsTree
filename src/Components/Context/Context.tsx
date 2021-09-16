@@ -8,6 +8,7 @@ interface OrganizationContextType {
   error: boolean;
   isValid: boolean;
   jsonUpdate: boolean;
+  duplicateFound: boolean;
 }
 
 interface IProps {
