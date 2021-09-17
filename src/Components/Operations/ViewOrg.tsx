@@ -1,14 +1,14 @@
 /* eslint-disable array-callback-return */
 //import axios from "axios";
 import React, { useContext, useEffect } from "react";
-import { OrganizationContext } from "../Context/Context";
 import { Link } from "react-router-dom";
+import { OrganizationContext } from "../Context/Context";
 import { ActionTypes } from "../Context/ActionTypes";
-const orgGraphData: any[] = [];
-const uniqeName: any[] = [];
+const mockData = require("../MockJSON/mockOrg.json");
 const reg = new RegExp("^[0-9]+$");
-const data = require("../MockJSON/mockOrg.json");
 let isLoaded: boolean = false;
+let orgGraphData: any[] = [];
+let uniqeName: any[] = [];
 
 const traverseJSON = (data: any) => {
   for (let k in data) {
@@ -46,6 +46,7 @@ const traverseJSON = (data: any) => {
 
 const getTreeStructure = (orgData: any) => {
   let element: string = "";
+  isLoaded = false;
   orgData.map((data: any, i: any) => {
     if (data.element === "<ul>") {
       element += "<ul class='nested'>";
@@ -70,10 +71,10 @@ export const ViewOrg = () => {
 
   useEffect(() => {
     if (organization.length === 0) {
-      traverseJSON(data);
+      traverseJSON(mockData);
       dispatch({
         type: ActionTypes.UPDATE_JSONDATA,
-        payload: { data: data, jsonUpdate: false },
+        payload: { data: mockData, jsonUpdate: false },
       });
       dispatch({
         type: ActionTypes.UPDATE,
@@ -102,7 +103,9 @@ export const ViewOrg = () => {
           });*/
     } else {
       if (state.jsonUpdate) {
-        traverseJSON(jsonData);
+        orgGraphData = [];
+        uniqeName = [];
+        traverseJSON(JSON.parse(jsonData));
         dispatch({
           type: ActionTypes.UPDATE,
           payload: { orgData: orgGraphData, jsonUpdate: false },
@@ -117,7 +120,6 @@ export const ViewOrg = () => {
     }
 
     //check loops & multiple “managers”
-    isLoaded = false;
     if ([...new Set(checkLoops(uniqeName))].length > 0) {
       dispatch({
         type: ActionTypes.DUPLICATE,
