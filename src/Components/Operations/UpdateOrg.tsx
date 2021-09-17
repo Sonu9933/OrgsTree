@@ -20,7 +20,7 @@ export const UpdateOrg = () => {
       } else if (
         acceptedFiles[0].path
           .substr(acceptedFiles[0].path.lastIndexOf("\\") + 1)
-          .split(".")[0] !== "json"
+          .split(".")[1] !== "json"
       ) {
         dispatch({
           type: ActionTypes.ERROR,
